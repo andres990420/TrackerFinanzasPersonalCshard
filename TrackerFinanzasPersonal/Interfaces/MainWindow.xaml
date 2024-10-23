@@ -1,0 +1,78 @@
+﻿<Window x:Class="TrackerFinanzasPersonal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrackerFinanzasPersonal"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="DashboardPageView">
+    <Grid>
+        <materialDesign:Card>
+            <Grid RenderTransformOrigin="0.269,0.284">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid Background="LightBlue">
+                    <Grid.Resources>
+                        <Style TargetType="materialDesign:PackIcon">
+                            <Setter Property="Width" Value="50"/>
+                            <Setter Property="Height" Value="50"/>
+                        </Style>
+                    </Grid.Resources>
+                    <ListView HorizontalAlignment="Center">
+                        <ListViewItem HorizontalAlignment="Center">
+                            <StackPanel Margin="0 10 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="InsertPhoto" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                            Foreground="Green" Height="70" Width="70" Focusable="False">
+                                    </materialDesign:PackIcon>
+                                    <Label Content="@Usuario" FontWeight="Bold" Foreground="DarkGreen"></Label>
+                                </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Margin="0" HorizontalAlignment="Center">
+                            <Button Style="{StaticResource MaterialDesignIconButton}" Click="DashboardPageView" ToolTip="Dashboard">
+                                <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                    <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Foreground="Yellow" Height="40" Width="40"></materialDesign:PackIcon>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Margin="0" HorizontalAlignment="Center">
+                            <Button Style="{StaticResource MaterialDesignIconButton}" Click="DetailPageView" ToolTip="Detail Pages">
+                                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="MonitorAccount" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Foreground="Purple" Height="40" Width="40"></materialDesign:PackIcon>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Margin="0 15 0 0" HorizontalAlignment="Center">
+                            <Button Style="{StaticResource MaterialDesignIconButton}" Width="30" Height="30" ToolTip="Settings">
+                                <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Foreground="Gray" Height="30" Width="30"></materialDesign:PackIcon>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Margin="0 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="60">
+                            <Button Style="{StaticResource MaterialDesignIconButton}" Click="ExitApp" ToolTip="Exit">
+                                <StackPanel Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Foreground="Red" Height="40" Width="40"></materialDesign:PackIcon>
+                                </StackPanel>
+                            </Button>
+                            
+                        </ListViewItem>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Column="1" Name="DashboardPageButton" Visibility="Visible">
+                   
+                </Grid>
+                <Grid Grid.Column="1" Name="DetailPagesButton"  Visibility="Hidden">
+                    
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

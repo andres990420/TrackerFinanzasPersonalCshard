@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="TrackerFinanzasPersonal.Interfaces.DetailPageInterfaces.DetailPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrackerFinanzasPersonal.Interfaces.DetailPageInterfaces"
+             xmlns:materialDesing ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <materialDesing:Card Style="{StaticResource MaterialDesignElevatedCard}" Margin="5" Background="Beige">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <!--Titulo de la pagina-->
+                <Label Grid.Row="0" Content="Detalles de Movimientos" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    FontSize="40" Foreground="Red" FontWeight="Bold">
+                </Label>
+
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Data grid para los movimientos Gastos-->
+                    <DataGrid Margin="5" FontSize="12" Name="dataGridGastos" Grid.Column="0">
+                        <!---Estilo para los headers del data grip-->
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <!-- Configuracion de los Headers -->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding fecha}"/>
+                            <DataGridTextColumn Header="Categoria" Width="*" Binding="{Binding categoria}"/>
+                            <DataGridTextColumn Header="Monto" Width="*" Binding="{Binding monto}"/>
+                            <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}"/>
+                        </DataGrid.Columns>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Content.Text}"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                    </DataGrid>
+                    <DataGrid Margin="5" FontSize="12" Name="dataGridIngresos" Grid.Column="1">
+                        <!---Estilo para los headers del data grip-->
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <!-- Configuracion de los Headers -->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding fecha}"/>
+                            <DataGridTextColumn Header="Categoria" Width="*" Binding="{Binding categoria}"/>
+                            <DataGridTextColumn Header="Monto" Width="*" Binding="{Binding monto}"/>
+                            <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}"/>
+                        </DataGrid.Columns>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource self}, Path=Content.Text}"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                    </DataGrid>
+                </Grid>
+                <!---Botones de Agregar Modificar y Eliminar-->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="5">
+                        <!--Setteo de los style para los botones-->
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Width" Value="160"/>
+                                <Setter Property="Height" Value="25"/>
+                                <Setter Property="MinHeight" Value="25"/>
+                                <Setter Property="MinWidth" Value="150"/>
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="Background" Value="MediumBlue"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button Grid.Row="2" Margin="5" Content="Agregar Movimiento"></Button>
+                        <Button Grid.Row="2" Margin="5" Content="Modificar Moviemiento"></Button>
+                        <Button Grid.Row="2" Margin="5" Content="Eliminar Movimiento"></Button>
+                    </StackPanel>
+                    <materialDesing:Clock Grid.Column="2" DisplayAutomation="Cycle" Style="{StaticResource MaterialDesignClockHorizontalThemed}" 
+                                       FontSize="20" Time="2:51">
+                    </materialDesing:Clock>
+                </Grid>
+            </Grid>
+        </materialDesing:Card>
+    </Grid>
+</UserControl>
